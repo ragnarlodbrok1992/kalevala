@@ -7,6 +7,8 @@ pub fn main() !void {
     // 2. Open file - write to file - close the file.
     const heap_allocator = std.heap.page_allocator;
 
-    var args = std.process.argsWithAllocator(heap_allocator);
-    std.debug.print("{any}\n", .{args});
+    var argsSliceList = try std.process.argsAlloc(heap_allocator);
+
+    std.debug.print("{s}\n", .{argsSliceList}); // ARGS ALLOC IS THE BEST
+
 }
