@@ -24,7 +24,8 @@ pub fn main() !void {
 
     // Get count of arguments
 
-    for (args_slice_list) |arg| {
+    for (args_slice_list, 0..) |arg, index| {
+        std.debug.print("Index: {d}\n", .{index});
         std.debug.print("{s}\n", .{arg});
         std.debug.print("TypeOf arg: {?}\n", .{@TypeOf(arg)});
     }
